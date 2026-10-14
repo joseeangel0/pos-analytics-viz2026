@@ -1,0 +1,156 @@
+/* ==========================================================================
+   SISTEMA DE DISEÑO & EXPERIENCIA DE USUARIO (UX/UI) - DASHBOARD POS
+   Paleta: Deep Teal Slate (WCAG AA/AAA Compliant - Alto Contraste Garantizado)
+   ========================================================================== */
+
+:root {
+  /* Fondos */
+  --bg-app: #0a0f1c;
+  --bg-surface: #131a2a;
+  --bg-surface-raised: #1e293b;
+  --bg-input: #0c1322;
+  
+  /* Bordes & Sombras */
+  --border-subtle: #1e293b;
+  --border-active: #2dd4bf;
+  --border-default: #334155;
+  --shadow-card: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+  
+  /* Tipografía & Contrastes */
+  --text-primary: #f8fafc;      /* Blanco óptico puro para encabezados */
+  --text-secondary: #9aa5b8;    /* Gris neutro para subtítulos y metadatos */
+  --text-accent: #2dd4bf;       /* Turquesa brillante para acentos y selecciones */
+  --text-highlight: #a5b4fc;    /* Indigo pastel */
+}
+
+/* Base */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: -0.01em;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Tarjetas de Contenido (Cards) */
+.ux-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-default);
+  border-radius: 14px;
+  padding: 24px 28px;
+  box-shadow: var(--shadow-card);
+  transition: border-color 0.2s ease;
+}
+
+.ux-card:hover {
+  border-color: rgba(45, 212, 191, 0.3);
+}
+
+/* ==========================================================================
+   DROPDOWN (dcc.Dropdown - React Select) - BLINDAJE VISUAL DE ALTO CONTRASTE
+   Garantiza que NUNCA exista fondo blanco con texto blanco ni pérdida de foco.
+   ========================================================================== */
+
+/* Caja exterior del Dropdown */
+.Select-control {
+  background-color: var(--bg-input) !important;
+  border: 1.5px solid var(--border-default) !important;
+  border-radius: 10px !important;
+  height: 48px !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  transition: all 0.2s ease !important;
+}
+
+.Select-control:hover,
+.is-focused:not(.is-open) > .Select-control {
+  border-color: var(--border-active) !important;
+  box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.15) !important;
+}
+
+/* Valor Seleccionado (Visible, nítido y de alto contraste) */
+.Select-value {
+  line-height: 48px !important;
+  padding-left: 14px !important;
+}
+
+.Select-value-label {
+  color: #2dd4bf !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  letter-spacing: 0.01em !important;
+}
+
+/* Placeholder cuando no hay selección */
+.Select-placeholder {
+  color: var(--text-secondary) !important;
+  line-height: 48px !important;
+  padding-left: 14px !important;
+  font-size: 0.95rem !important;
+}
+
+/* Input interno al buscar */
+.Select-input > input {
+  color: var(--text-primary) !important;
+  font-size: 0.95rem !important;
+}
+
+/* Indicadores de flecha */
+.Select-arrow-zone {
+  padding-right: 14px !important;
+}
+
+.Select-arrow {
+  border-color: var(--text-accent) transparent transparent !important;
+  border-width: 6px 5px 0 !important;
+}
+
+/* Menú desplegable con las opciones */
+.Select-menu-outer {
+  background-color: var(--bg-input) !important;
+  border: 1.5px solid var(--border-default) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.7), 0 8px 10px -6px rgba(0, 0, 0, 0.7) !important;
+  margin-top: 6px !important;
+  z-index: 9999 !important;
+  overflow: hidden !important;
+}
+
+.Select-menu {
+  background-color: var(--bg-input) !important;
+  max-height: 320px !important;
+}
+
+/* Opciones individuales */
+.Select-option {
+  background-color: var(--bg-input) !important;
+  color: #e2e8f0 !important;
+  padding: 12px 16px !important;
+  font-size: 0.92rem !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03) !important;
+}
+
+.Select-option:hover,
+.Select-option.is-focused {
+  background-color: var(--bg-surface-raised) !important;
+  color: var(--text-accent) !important;
+  font-weight: 600 !important;
+  padding-left: 20px !important;
+}
+
+.Select-option.is-selected {
+  background-color: rgba(45, 212, 191, 0.15) !important;
+  color: var(--text-accent) !important;
+  font-weight: 700 !important;
+  border-left: 3px solid var(--text-accent) !important;
+}

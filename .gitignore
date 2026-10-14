@@ -1,0 +1,34 @@
+# Entorno Virtual de Python (NUNCA SUBIR)
+.venv/
+venv/
+env/
+ENV/
+
+# Archivos de configuración local y credenciales privadas
+.env
+
+# Archivos compilados y caché de Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyd
+
+# Bases de datos SQLite locales temporales
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs y archivos temporales
+*.log
+.system_generated/
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Configuraciones de editores
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
