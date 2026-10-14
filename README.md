@@ -23,7 +23,7 @@ dataTransform.py  ──  limpieza, tipos numéricos, columnas de Año / Mes / S
         ▼  SQLAlchemy + PyMySQL
 Base de datos Viz2026  (MySQL 8.0, o SQLite como respaldo)
         │
-        ├──► app.py               → Dashboard Dash en vivo (http://127.0.0.1:8050)
+        ├──► app.py               → Dashboard Dash con las 3 visualizaciones (http://127.0.0.1:8050)
         ├──► generar_html.py      → ordenes.html
         ├──► generar_pagos.py     → pagos.html
         └──► generar_sesiones.py  → sesiones.html
@@ -31,7 +31,9 @@ Base de datos Viz2026  (MySQL 8.0, o SQLite como respaldo)
 
 ---
 
-## 📈 Reportes
+## 📈 Visualizaciones
+
+Las tres visualizaciones están en el dashboard de **Dash** (`app.py`), cada una con su propia consulta SQL y un selector de granularidad. También se exportan como reportes HTML independientes para GitHub Pages.
 
 | Archivo | Qué muestra | Tipo de gráfica | Vistas disponibles |
 | :--- | :--- | :--- | :--- |
@@ -54,7 +56,7 @@ Base de datos Viz2026  (MySQL 8.0, o SQLite como respaldo)
 ├── anonimizar.py          # Seudónimos para nombres de empleados
 ├── db_config.py           # Conexión SQLAlchemy (MySQL con respaldo SQLite)
 ├── dataTransform.py       # ETL: Excel → tablas en la base de datos
-├── app.py                 # Dashboard interactivo en Dash
+├── app.py                 # Dashboard Dash: 3 visualizaciones + consultas SQL
 ├── generar_html.py        # Genera ordenes.html
 ├── generar_pagos.py       # Genera pagos.html
 ├── generar_sesiones.py    # Genera sesiones.html
@@ -112,7 +114,7 @@ python dataTransform.py
 **4. Ver los resultados**
 
 ```bash
-python app.py               # dashboard en http://127.0.0.1:8050
+python app.py               # dashboard con las 3 gráficas en http://127.0.0.1:8050
 
 python generar_html.py      # regenera ordenes.html
 python generar_pagos.py     # regenera pagos.html
